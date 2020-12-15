@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FoodbankCollectiveAPI.Extensions;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NLog;
 
 namespace FoodbankCollectiveAPI
 {
@@ -20,6 +22,8 @@ namespace FoodbankCollectiveAPI
     {
         public Startup(IConfiguration configuration)
         {
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),
+        "/nlog.config"));
             Configuration = configuration;
         }
 
