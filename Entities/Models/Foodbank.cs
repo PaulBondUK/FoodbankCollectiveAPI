@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models
 {
-    public class FoodbankEntity
+    public class Foodbank
     {
         public Guid Id { get; set; }
 
@@ -21,6 +21,6 @@ namespace Entities.Models
         [MaxLength(15, ErrorMessage = "Max length for contact number is 15")]
         public string ContactNumber { get; set; }
 
-        public ICollection<LocationEntity> Locations { get; set; }
+        public ICollection<Location> Locations { get; set; }
     }
 }

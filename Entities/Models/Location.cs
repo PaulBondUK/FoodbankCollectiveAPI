@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
-    public class LocationEntity
+    public class Location
     {
         public Guid Id { get; set; }
 
@@ -24,9 +24,9 @@ namespace Entities.Models
         [MaxLength(10, ErrorMessage = "Max length for AddressPostcode is 10 characters")]
         public string AddressPostcode { get; set; }
 
-        [ForeignKey(nameof(FoodbankEntity))]
+        [ForeignKey(nameof(Foodbank))]
         public Guid FoodbankId { get; set; }
-        public FoodbankEntity Foodbank { get; set; }
+        public Foodbank Foodbank { get; set; }
 
     }
 }
