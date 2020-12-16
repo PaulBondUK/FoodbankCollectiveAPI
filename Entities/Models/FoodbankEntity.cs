@@ -18,9 +18,9 @@ namespace Entities.Models
         [MaxLength(100, ErrorMessage = "Max length for the email address is 100 characters")]
         public string EmailAddress { get; set; }
 
-        [MaxLength(15, ErrorMessage = "max length for contact number is 15")]
+        [MaxLength(15, ErrorMessage = "Max length for contact number is 15")]
         public string ContactNumber { get; set; }
 
-        public ICollection<Location> Locations { get; set; }
+        public ICollection<LocationEntity> Locations { get; set; }
     }
 }
