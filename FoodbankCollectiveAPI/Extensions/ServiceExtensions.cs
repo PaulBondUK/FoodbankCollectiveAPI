@@ -1,4 +1,5 @@
 ﻿using System;
+using LoggerService;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FoodbankCollectiveAPI.Extensions
@@ -11,5 +12,11 @@ namespace FoodbankCollectiveAPI.Extensions
                 options.AddPolicy("CorsPolicy", builder =>
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+
+        public static void ConfigureLoggerService(this IServiceCollection services) =>
+            services.AddScoped<ILoggerManager, LoggerManager>();
     }
 }
+
+//public static void ConfigureLoggerService(this IServiceCollection services) =>
+//   services.AddScoped<ILoggerManager, LoggerManager>();
