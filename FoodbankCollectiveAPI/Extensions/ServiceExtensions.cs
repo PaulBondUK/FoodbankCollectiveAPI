@@ -17,6 +17,3 @@ namespace FoodbankCollectiveAPI.Extensions
             services.AddScoped<ILoggerManager, LoggerManager>();
     }
 }
-
-//public static void ConfigureLoggerService(this IServiceCollection services) =>
-//   services.AddScoped<ILoggerManager, LoggerManager>();
