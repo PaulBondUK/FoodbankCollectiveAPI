@@ -1,5 +1,8 @@
 ﻿using System;
+using Entities;
 using LoggerService;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FoodbankCollectiveAPI.Extensions
@@ -15,5 +18,8 @@ namespace FoodbankCollectiveAPI.Extensions
 
         public static void ConfigureLoggerService(this IServiceCollection services) =>
             services.AddScoped<ILoggerManager, LoggerManager>();
+
+        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
+            services.AddDbContext<RepositoryContext>(opts => opts.UseSqlite(configuration.GetConnectionString("sqlconnection")));
     }
 }
