@@ -34,6 +34,7 @@ namespace FoodbankCollectiveAPI
         {
             services.ConfigureCors();
             services.ConfigureLoggerService();
+            services.ConfigureSqlContext(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
