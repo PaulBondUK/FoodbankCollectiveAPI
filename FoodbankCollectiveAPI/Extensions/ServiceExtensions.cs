@@ -4,6 +4,7 @@ using LoggerService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace FoodbankCollectiveAPI.Extensions
 {
@@ -20,6 +21,7 @@ namespace FoodbankCollectiveAPI.Extensions
             services.AddScoped<ILoggerManager, LoggerManager>();
 
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
-            services.AddDbContext<RepositoryContext>(opts => opts.UseSqlite(configuration.GetConnectionString("sqlconnection")));
+            services.AddDbContext<RepositoryContext>(options =>
+            options.UseNpgsql(configuration.GetConnectionString("sqlConnection"), b => b.MigrationsAssembly("FoodbankCollectiveAPI")));
     }
 }
